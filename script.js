@@ -6,7 +6,8 @@ window.addEventListener("DOMContentLoaded", function (event) {
             window.location.href = 'home.html'
         }
         else if (isloged == "false"){
-            window.location.href = 'index.html'
+
+
             document.getElementById('olho').addEventListener('mousedown', function() {
                 document.getElementById('pass').type = 'text';
               });
