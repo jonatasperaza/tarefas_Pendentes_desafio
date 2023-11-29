@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="img/user.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css" />
     <script src="https://accounts.google.com/gsi/client" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Cadastro</title>
     <style></style>
   </head>
@@ -28,7 +29,7 @@
             ></path>
           </g>
         </svg>
-        <input type="text" class="input" placeholder="Insira o seu Email" />
+        <input type="text" class="input" placeholder="Insira o seu Email" id="mail" />
       </div>
 
       <div class="flex-column">
@@ -51,7 +52,7 @@
         <input
           type="password"
           class="input"
-          id="pass"
+          id="passc"
           placeholder="Insira sua senha"
         />
         <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png" id="olho" style="
@@ -79,7 +80,7 @@
         <input
           type="password"
           class="input"
-          id="pass"
+          id="passcC"
           placeholder="Confirme sua senha"
         />
         <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png" id="olho" style="
@@ -87,7 +88,11 @@
         margin-left: 170px;
         ">
       </div>
-      <button class="button-submit">Cadastre-se</button>
+      <button class="button-submit" id="btn-cdr" onclick='cadastro(
+        document.getElementById("passc").value,
+        document.getElementById("passcC").value,
+        document.getElementById("mail").value
+      )'>Cadastre-se</button>
       <p class="p">Já uma conta? <span class="span"><a href="index.html">Entrar</a></span></p>
       <p class="p line">Ou</p>
 
@@ -99,4 +104,18 @@
   <script src="https://unpkg.com/jwt-decode@3.1.2/build/jwt-decode.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
   <script src="script.js"></script>
+  <script src="cadastro.js"></script>
+  <script> 
+  document.getElementById("olho").addEventListener("mousedown", function () {
+    document.getElementById("passc").type = "text";
+  });
+
+  document.getElementById("olho").addEventListener("mouseup", function () {
+    document.getElementById("passc").type = "password";
+  });
+
+  document.getElementById("olho").addEventListener("mousemove", function () {
+    document.getElementById("passc").type = "password";
+  });
+  /* End Olho */</script>
 </html>

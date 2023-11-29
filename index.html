@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="img/user.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css" />
     <script src="https://accounts.google.com/gsi/client" async></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Login</title>
     <style></style>
   </head>
@@ -28,7 +29,7 @@
             ></path>
           </g>
         </svg>
-        <input type="text" class="input" placeholder="Insira o seu Email" />
+        <input type="text" class="input" id="mail" placeholder="Insira o seu Email" />
       </div>
 
       <div class="flex-column">
@@ -59,7 +60,7 @@
         margin-left: 170px;
         ">
       </div>
-      <button class="button-submit">Entrar</button>
+      <button class="button-submit" onclick='login(document.getElementById("pass").value, document.getElementById("mail").value)'>Entrar</button>
       <p class="p">Não tem uma conta?<span class="span"><a href="cadastro.html">Cadastre-se</a></span></p>
       <p class="p line">Ou</p>
 
@@ -70,5 +71,17 @@
   </body>
   <script src="https://unpkg.com/jwt-decode@3.1.2/build/jwt-decode.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js">  document.getElementById("olho").addEventListener("mousedown", function () {
+    document.getElementById("pass").type = "text";
+  });
+
+  document.getElementById("olho").addEventListener("mouseup", function () {
+    document.getElementById("pass").type = "password";
+  });
+
+  document.getElementById("olho").addEventListener("mousemove", function () {
+    document.getElementById("pass").type = "password";
+  });
+  /* End Olho */</script>
+  <script src="cadastro.js"></script>
 </html>
