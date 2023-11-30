@@ -135,23 +135,19 @@
           alert("Insira um nome para a sua tarefa");
         }
       }
-
       function marcarCompleta(itemTarefa) {
         itemTarefa.classList.toggle("completed");
         salvarTarefa();
       }
-
       function apagarTarefa(itemTarefa) {
         let listaTarefas = document.getElementById("listaTarefas");
         listaTarefas.removeChild(itemTarefa);
         salvarTarefa();
         tarefasDeletada(itemTarefa);
       }
-
       function salvarTarefa() {
         let listaTarefas = document.getElementById("listaTarefas");
         let tarefas = [];
-
         for (let i = 0; i < listaTarefas.children.length; i++) {
           let itemTarefa = listaTarefas.children[i];
           let tarefa = {
@@ -160,14 +156,11 @@
           };
           tarefas.push(tarefa);
         }
-
         localStorage.setItem("tarefas", JSON.stringify(tarefas));
       }
-
       function carregarTarefa() {
         let listaTarefas = document.getElementById("listaTarefas");
         let tarefas = JSON.parse(localStorage.getItem("tarefas"));
-
         if (tarefas) {
           for (let i = 0; i < tarefas.length; i++) {
             let tarefa = tarefas[i];
@@ -197,14 +190,21 @@
         let listaTarefas = document.getElementById("listaTarefas");
         if (tarefasexcluidas.length > 0) {
           let tarefaRestaurar = tarefasexcluidas.pop();
+          let tarefaCompleta = tarefaRestaurar.classList.contains("completed");
+          tarefaRestaurar.classList.remove("completed");
           listaTarefas.appendChild(tarefaRestaurar);
+          if (!tarefaCompleta) {
+            tarefaRestaurar.classList.add("completed");
+          }
           salvarTarefa();
         } else {
-          alert("Nenhuma tarefa para desfazer.");
+          alert("Nenhuma tarefa para desfazer");
         }
       }
     </script>
-    <script src="https://unpkg.com/jwt-decode@3.1.2/build/jwt-decode.js"></script>
+    <script src="https://unpkg.com/jwt-decode@3.1.2/build/jwt-decode.js">
+      //biblioteca responsavel para descriptografar o token do google necessaria nas pagina que usam algum item do token
+    </script>
     <script src="script.js"></script>
   </body>
 </html>
