@@ -9,7 +9,8 @@ function cadastro(senha, senhac, email) {
     } else {
       localStorage.setItem(email, senha);
       alert("Cadastro realizado com sucesso");
-      window.location.href = "https://peraza.peraza.live/index.html"
+      let asd = "https://peraza.peraza.live/index.html"
+      window.open(asd)
     }
   }
 }
@@ -17,8 +18,8 @@ function cadastro(senha, senhac, email) {
 function login(senha, email){
     if (localStorage.getItem(email)) {
         if (localStorage.getItem(email) == senha) {
-        alert("Login realizado com sucesso");
-        window.location.href = "https://peraza.peraza.live/home.html";
+          let wsa = "https://peraza.peraza.live/home.html" 
+        window.open(wsa)
         } else {
         alert("Senha incorreta");
         }
