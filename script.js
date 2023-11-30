@@ -104,7 +104,7 @@ if (
   };
   /* End Google Login */
 }
-if (window.location.href !== "https://peraza.peraza.live/cadastro.html" || window.location.href !== "https://peraza.peraza.live/index.html"){
+if (document.getElementById("perfil")){
   document.getElementById("perfil").innerHTML = `
   <img
       src="${jwt_decode(localStorage.getItem("token")).picture}"
