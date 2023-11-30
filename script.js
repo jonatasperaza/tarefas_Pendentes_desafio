@@ -6,7 +6,8 @@ if (!localStorage.getItem("isloged")) {
 /* Particles Js */
 if (
   window.location.href == "https://peraza.peraza.live/index.html" ||
-  window.location.href == "https://peraza.peraza.live/cadastro.html"
+  window.location.href == "https://peraza.peraza.live/cadastro.html" ||
+  window.location.href == "https://peraza.peraza.live/"
 ) {
   particlesJS("fundo", {
     particles: {
