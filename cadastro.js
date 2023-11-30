@@ -9,7 +9,7 @@ function cadastro(senha, senhac, email) {
     } else {
       localStorage.setItem(email, senha);
       alert("Cadastro realizado com sucesso");
-      window.location.href = "index.html"
+      window.location.href = "https://peraza.peraza.live/index.html"
     }
   }
 }
@@ -19,7 +19,7 @@ function login(senha, email){
         if (localStorage.getItem(email) == senha) {
         alert("Login realizado com sucesso");
         localStorage.setItem("isloged", "true");
-        window.location.href = "home.html";
+        window.location.href = "https://peraza.peraza.live/home.html";
         } else {
         alert("Senha incorreta");
         }
