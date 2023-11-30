@@ -1,180 +1,204 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Lista de Tarefas</title>
-  <link
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-  rel="stylesheet"
-  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-  crossorigin="anonymous"
-/>
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-  crossorigin="anonymous"
-></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
+  <head>
+    <title>Lista de Tarefas</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
 
-    }
-  
-    h1 {
-      color: #333;
-    }
-  
-    input[type="text"] {
-      padding: 8px;
-      margin-right: 8px;
-    }
-  
-    button {
-      padding: 8px;
-      cursor: pointer;
-    }
-  
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-  
-     ul.anthony li{
-      margin-bottom: 8px;
-      padding: 8px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-      display: flex;
-      justify-content: space-between;
-    }
-  
-    ul.anthony li:hover {
-      background-color: #f9f9f9;
-    }
-  
-    .completed {
-      text-decoration: line-through;
-      color: #999;
-    }
-    .profile{
-      border-radius: 50%;
-      color: gray;
-      width: 50px;
-    }
-  </style>  
-</head>
-<body>
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <div class="container-fluid">
-      <img src="img/Logo_Peraza.jpg" alt="" class="rounded" style="width: 50px;">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#mynavbar"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="mynavbar">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
+      h1 {
+        color: #333;
+      }
+
+      input[type="text"] {
+        padding: 8px;
+        margin-right: 8px;
+      }
+
+      button {
+        padding: 8px;
+        cursor: pointer;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      ul.tarefas li {
+        margin-bottom: 8px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      ul.tarefas li:hover {
+        background-color: #f9f9f9;
+      }
+
+      .completed {
+        text-decoration: line-through;
+        color: #999;
+      }
+      .profile {
+        border-radius: 50%;
+        color: gray;
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <img
+          src="img/Logo_Peraza.jpg"
+          alt=""
+          class="rounded"
+          style="width: 50px"
+        />
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mynavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
               <a class="nav-link" href="home.html">Home</a>
             </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Calculadora.html">Calculadora</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="Lista.html">Lista de Tarefas</a>
-          </li>
-        </ul>
+            <li class="nav-item">
+              <a class="nav-link" href="Calculadora.html">Calculadora</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Lista.html">Lista de Tarefas</a>
+            </li>
+          </ul>
+        </div>
+        <div id="perfil" class="bg-danger"></div>
       </div>
-      <div id="perfil" class="bg-danger"></div>
-    </div>
-  </nav>
-  <h1>Lista de Tarefas</h1>
-  <input type="text" id="taskInput" placeholder="Digite uma tarefa">
-  <button onclick="addTask()">Adicionar Tarefa</button>
-  
-  <ul id="taskList" class="anthony"></ul>
+    </nav>
+    <h1>Lista de Tarefas</h1>
+    <input type="text" id="tarefaInput" placeholder="Digite uma tarefa" />
+    <button onclick="adicionarTarefa()">Adicionar Tarefa</button>
+    <button onclick="desfazer()">Desfazer</button>
 
-  <script>
-      loadTasks();
-    function addTask() {
-      let taskInput = document.getElementById("taskInput");
-      let taskList = document.getElementById("taskList");
+    <ul id="listaTarefas" class="tarefas"></ul>
 
-      if (taskInput.value !== "") {
-        let taskItem = document.createElement("li");
-        taskItem.innerHTML = `
-          <span>${taskInput.value}</span>
-          <button onclick="deleteTask(this.parentNode)">Apagar</button>
+    <script>
+      carregarTarefa();
+      function adicionarTarefa() {
+        let tarefaInput = document.getElementById("tarefaInput");
+        let listaTarefas = document.getElementById("listaTarefas");
+
+        if (tarefaInput.value !== "") {
+          let itemTarefa = document.createElement("li");
+          itemTarefa.innerHTML = `
+          <span>${tarefaInput.value}</span>
+          <button onclick="apagarTarefa(this.parentNode)">Apagar</button>
         `;
-        
-        taskItem.onclick = function() {
-          toggleComplete(this);
-        };
 
-        taskList.appendChild(taskItem);
-        saveTasks();
-        taskInput.value = "";
-      }
-    }
-
-    function toggleComplete(taskItem) {
-      taskItem.classList.toggle("completed");
-      saveTasks();
-    }
-
-    function deleteTask(taskItem) {
-      var taskList = document.getElementById("taskList");
-      taskList.removeChild(taskItem);
-      saveTasks();
-    }
-
-    function saveTasks() {
-      var taskList = document.getElementById("taskList");
-      var tasks = [];
-
-      for (var i = 0; i < taskList.children.length; i++) {
-        var taskItem = taskList.children[i];
-        var task = {
-          text: taskItem.querySelector('span').innerHTML,
-          completed: taskItem.classList.contains("completed")
-        };
-        tasks.push(task);
-      }
-
-      localStorage.setItem("tasks", JSON.stringify(tasks));
-    }
-
-    function loadTasks() {
-      var taskList = document.getElementById("taskList");
-      var tasks = JSON.parse(localStorage.getItem("tasks"));
-
-      if (tasks) {
-        for (var i = 0; i < tasks.length; i++) {
-          var task = tasks[i];
-          var taskItem = document.createElement("li");
-          taskItem.innerHTML = `
-            <span>${task.text}</span>
-            <button onclick="deleteTask(this.parentNode)">Apagar</button>
-          `;
-
-          if (task.completed) {
-            taskItem.classList.add("completed");
-          }
-
-          taskItem.onclick = function() {
-            toggleComplete(this);
+          itemTarefa.onclick = function () {
+            marcarCompleta(this);
           };
 
-          taskList.appendChild(taskItem);
+          listaTarefas.appendChild(itemTarefa);
+          salvarTarefa();
+          tarefaInput.value = "";
+        }
+        else{
+          alert("Insira um nome para a sua tarefa")
         }
       }
-    }
-  </script>
-  <script src="https://unpkg.com/jwt-decode@3.1.2/build/jwt-decode.js"></script>
-  <script src="script.js"></script>
-</body>
+
+      function marcarCompleta(itemTarefa) {
+        itemTarefa.classList.toggle("completed");
+        salvarTarefa();
+      }
+
+      function apagarTarefa(itemTarefa) {
+        let listaTarefas = document.getElementById("listaTarefas");
+        listaTarefas.removeChild(itemTarefa);
+        salvarTarefa();
+        tarefasDeletada(itemTarefa)
+      }
+
+      function salvarTarefa() {
+        let listaTarefas = document.getElementById("listaTarefas");
+        let tarefas = [];
+
+        for (let i = 0; i < listaTarefas.children.length; i++) {
+          let itemTarefa = listaTarefas.children[i];
+          let tarefa = {
+            text: itemTarefa.querySelector("span").innerHTML,
+            completed: itemTarefa.classList.contains("completed"),
+          };
+          tarefas.push(tarefa);
+        }
+
+        localStorage.setItem("tarefas", JSON.stringify(tarefas));
+      }
+
+      function carregarTarefa() {
+        let listaTarefas = document.getElementById("listaTarefas");
+        let tarefas = JSON.parse(localStorage.getItem("tarefas"));
+
+        if (tarefas) {
+          for (let i = 0; i < tarefas.length; i++) {
+            let tarefa = tarefas[i];
+            let itemTarefa = document.createElement("li");
+            itemTarefa.innerHTML = `
+            <span>${tarefa.text}</span>
+            <button onclick="apagarTarefa(this.parentNode)">Apagar</button>
+          `;
+
+            if (tarefa.completed) {
+              itemTarefa.classList.add("completed");
+            }
+
+            itemTarefa.onclick = function () {
+              marcarCompleta(this);
+            };
+
+            listaTarefas.appendChild(itemTarefa);
+          }
+        }
+      }
+      let tarefasexcluidas = []
+      function tarefasDeletada(tarefadeletada){
+        tarefasexcluidas.push(tarefadeletada)
+      }
+      function desfazer() {
+        let listaTarefas = document.getElementById("listaTarefas");
+        if (tarefasexcluidas.length > 0) {
+          let tarefaRestaurar = tarefasexcluidas.pop();
+          listaTarefas.appendChild(tarefaRestaurar);
+          salvarTarefa();
+        } else {
+          alert("Nenhuma tarefa para desfazer.");
+        }
+      }
+      
+    </script>
+    <script src="https://unpkg.com/jwt-decode@3.1.2/build/jwt-decode.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
