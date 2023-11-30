@@ -102,18 +102,19 @@ if (
     });
     google.accounts.id.prompt();
   };
+  /* End Google Login */
 }
-/* End Google Login */
+if (window.location.href !== "https://peraza.peraza.live/cadastro.html" || window.location.href !== "https://peraza.peraza.live/index.html"){
+  document.getElementById("perfil").innerHTML = `
+  <img
+      src="${jwt_decode(localStorage.getItem("token")).picture}"
+      alt="profile"
+      class="profile"
+  />
+  </div>
+  `;
+  }
+  
 
-/* HTML porfile*/
-if (window.location.href !== "index.html" || window.location.href !== "home.html"){
-document.getElementById("perfil").innerHTML = `
-<img
-    src="${jwt_decode(localStorage.getItem("token")).picture}"
-    alt="profile"
-    class="profile"
-/>
-</div>
-`;
-}
+
 

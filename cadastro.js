@@ -18,7 +18,6 @@ function login(senha, email){
     if (localStorage.getItem(email)) {
         if (localStorage.getItem(email) == senha) {
         alert("Login realizado com sucesso");
-        localStorage.setItem("isloged", "true");
         window.location.href = "https://peraza.peraza.live/home.html";
         } else {
         alert("Senha incorreta");

@@ -104,7 +104,13 @@
     <ul id="listaTarefas" class="tarefas"></ul>
 
     <script>
-      carregarTarefa();
+      const inputEle = document.getElementById("tarefaInput");
+      inputEle.addEventListener("keyup", function (e) {
+        var key = e.which || e.keyCode;
+        if (key == 13) {
+          adicionarTarefa();
+        }
+      });
       function adicionarTarefa() {
         let tarefaInput = document.getElementById("tarefaInput");
         let listaTarefas = document.getElementById("listaTarefas");
@@ -113,7 +119,7 @@
           let itemTarefa = document.createElement("li");
           itemTarefa.innerHTML = `
           <span>${tarefaInput.value}</span>
-          <button onclick="apagarTarefa(this.parentNode)">Apagar</button>
+          <button onclick="apagarTarefa(this.parentNode)">Apagar</button> 
         `;
 
           itemTarefa.onclick = function () {
@@ -123,9 +129,9 @@
           listaTarefas.appendChild(itemTarefa);
           salvarTarefa();
           tarefaInput.value = "";
-        }
-        else{
-          alert("Insira um nome para a sua tarefa")
+          tarefaInput.focus();
+        } else {
+          alert("Insira um nome para a sua tarefa");
         }
       }
 
@@ -138,7 +144,7 @@
         let listaTarefas = document.getElementById("listaTarefas");
         listaTarefas.removeChild(itemTarefa);
         salvarTarefa();
-        tarefasDeletada(itemTarefa)
+        tarefasDeletada(itemTarefa);
       }
 
       function salvarTarefa() {
@@ -182,9 +188,9 @@
           }
         }
       }
-      let tarefasexcluidas = []
-      function tarefasDeletada(tarefadeletada){
-        tarefasexcluidas.push(tarefadeletada)
+      let tarefasexcluidas = [];
+      function tarefasDeletada(tarefadeletada) {
+        tarefasexcluidas.push(tarefadeletada);
       }
       function desfazer() {
         let listaTarefas = document.getElementById("listaTarefas");
@@ -196,7 +202,6 @@
           alert("Nenhuma tarefa para desfazer.");
         }
       }
-      
     </script>
     <script src="https://unpkg.com/jwt-decode@3.1.2/build/jwt-decode.js"></script>
     <script src="script.js"></script>
