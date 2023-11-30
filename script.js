@@ -106,7 +106,8 @@ if (
 /* End Google Login */
 
 /* HTML porfile*/
-let porfile = jwt_decode(localStorage.getItem("token")).picture;
+if (window.location.href !== "index.html" || window.location.href !== "home.html"){
+  let porfile = jwt_decode(localStorage.getItem("token")).picture;
 document.getElementById("perfil").innerHTML = `
 <img
     src="${jwt_decode(localStorage.getItem("token")).picture}"
@@ -115,3 +116,6 @@ document.getElementById("perfil").innerHTML = `
 />
 </div>
 `;
+}
+
+  

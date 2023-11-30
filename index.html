@@ -71,17 +71,20 @@
   </body>
   <script src="https://unpkg.com/jwt-decode@3.1.2/build/jwt-decode.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-  <script src="script.js">  document.getElementById("olho").addEventListener("mousedown", function () {
-    document.getElementById("pass").type = "text";
-  });
+  <script src="script.js">  
+    document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("olho").addEventListener("mousedown", function () {
+      document.getElementById("pass").type = "text";
+    });
 
-  document.getElementById("olho").addEventListener("mouseup", function () {
-    document.getElementById("pass").type = "password";
-  });
+    document.getElementById("olho").addEventListener("mouseup", function () {
+      document.getElementById("pass").type = "password";
+    });
 
-  document.getElementById("olho").addEventListener("mousemove", function () {
-    document.getElementById("pass").type = "password";
+    document.getElementById("olho").addEventListener("mousemove", function () {
+      document.getElementById("pass").type = "password";
+    });
   });
-  /* End Olho */</script>
+</script>
   <script src="cadastro.js"></script>
 </html>
