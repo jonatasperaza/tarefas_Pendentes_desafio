@@ -3,88 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="img/user.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css" />
-    <script src="https://accounts.google.com/gsi/client" async></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js" integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Login</title>
-    <style></style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <title>Home</title>
   </head>
+  <style>
+    .profile{
+      border-radius: 50%;
+      color: gray;
+      width: 50px;
+    }
+
+  </style>
   <body>
-    <div id="fundo"></div>
-    <form class="form">
-      <div class="flex-column">
-        <label>Email </label>
-      </div>
-      <div class="inputForm">
-        <svg
-          height="20"
-          viewBox="0 0 32 32"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <div class="container-fluid">
+        <img src="img/Logo_Peraza.jpg" alt="" class="rounded" style="width: 50px;">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mynavbar"
         >
-          <g id="Layer_3" data-name="Layer 3">
-            <path
-              d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z"
-            ></path>
-          </g>
-        </svg>
-        <input type="text" class="input" id="mail" placeholder="Insira o seu Email" />
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynavbar">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="home.html">Home</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Calculadora.html">Calculadora</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Lista.html">Lista de Tarefas</a>
+            </li>
+          </ul>
+        </div>
+        <div id="perfil" class="bg-danger"></div>
       </div>
-
-      <div class="flex-column">
-        <label>Senha </label>
-      </div>
-      <div class="inputForm">
-        <svg
-          height="20"
-          viewBox="-64 0 512 512"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"
-          ></path>
-          <path
-            d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"
-          ></path>
-        </svg>
-        <input
-          type="password"
-          class="input"
-          id="pass"
-          placeholder="Insira sua senha"
-        />
-        <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png" id="olho" style="
-        width: 10%;
-        margin-left: 170px;
-        ">
-      </div>
-      <button class="button-submit" onclick='login(document.getElementById("pass").value, document.getElementById("mail").value)'>Entrar</button>
-      <p class="p">Não tem uma conta?<span class="span"><a href="cadastro.html">Cadastre-se</a></span></p>
-      <p class="p line">Ou</p>
-
-      <div id="buttonDiv" style="margin: auto;"></div>
-      </div>
-      <p class="p"><a href="terms.html">Termos</a></p><p class="p"><a href="privacy.html">Politica de privacidade</a></p>
-    </form>
+    </nav>
+    <!-- End Nav -->
   </body>
   <script src="https://unpkg.com/jwt-decode@3.1.2/build/jwt-decode.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-  <script src="script.js">  
-    document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("olho").addEventListener("mousedown", function () {
-      document.getElementById("pass").type = "text";
-    });
-
-    document.getElementById("olho").addEventListener("mouseup", function () {
-      document.getElementById("pass").type = "password";
-    });
-
-    document.getElementById("olho").addEventListener("mousemove", function () {
-      document.getElementById("pass").type = "password";
-    });
-  });
-</script>
-  <script src="cadastro.js"></script>
+  <script src="script.js"></script>
 </html>
